@@ -1,0 +1,190 @@
+/* /frontend/styles/editaMembro.css - ADERINDO AO PADRÃO DO criaNovoMembro.css */
+
+/* --- Variáveis de Cor (Ajustadas para o padrão do projeto) --- */
+:root {
+    --color-primary: #5a5f7f;     /* Azul/Roxo Escuro (Primário da Marca) */
+    --color-secondary: #ff6b6b;   /* Vermelho Cativante (Acento/Aviso) */
+    --color-background: #f0f2f5;  /* Cinza Claro (Fundo) */
+    --color-card-bg: #ffffff;     /* Branco Puro (Cartões/Formulário) */
+    --color-text-dark: #343a40;   /* Texto Escuro */
+    --color-success: #28a745;     /* Verde Sucesso */
+    --color-error: #dc3545;       /* Vermelho Erro */
+}
+
+/* --- Estilos Gerais e Layout --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    /* Estas propriedades são importantes para centralizar o conteúdo, como no criaNovoMembro.css */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; 
+}
+
+/* --- Estilo do Cabeçalho (Sem cor de fundo) --- */
+header {
+    width: 100%;
+    max-width: 500px; /* Alinha com a largura da main */
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: transparent; /* Fundo transparente (sem a cor azul) */
+    box-shadow: none; /* Sem sombra */
+}
+
+#titulo-pagina { /* Altera o H1 para usar a cor primária e ter o mesmo estilo */
+    color: var(--color-primary);
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin: 0;
+    padding-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline animado para o H1 (opcional, mas incluído para coerência) */
+#titulo-pagina::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-secondary);
+    transform: scaleX(1); /* Deixei sempre visível para não precisar do hover no body */
+    transform-origin: bottom left;
+}
+
+/* --- Estilo da Área Principal (Main/Card) --- */
+main {
+    background-color: var(--color-card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+    width: 100%;
+    max-width: 500px; /* Largura padrão */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+main:hover {
+    transform: translateY(-5px); 
+}
+
+form, .form-group{
+    margin-bottom: 26px;
+}
+
+
+/* --- Elementos de Formulário (Estrutura) --- */
+#form-edicao {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+/* Garante o espaçamento e fonte corretos para os campos */
+.form-group label {
+    display: block;
+    margin-bottom: 7px; 
+    font-weight: 600;
+    color: var(--color-text-dark);
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input[type="text"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(90, 95, 127, 0.2);
+}
+
+/* --- Estilo dos Botões (Roxo) --- */
+
+/* Contêiner para os botões */
+.botoes-acao {
+    display: flex;
+    justify-content: space-between; /* Espaçamento entre os botões */
+    margin-top: 30px;
+    width: 100%;
+    gap: 10px;
+}
+
+#btn-salvar, .btn-voltar {
+    /* Usamos as cores roxas que você pediu, baseadas na --color-primary */
+    background-color: var(--color-primary);
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none; /* Para o link se parecer com o botão */
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Fazem os botões ocuparem espaço similar */
+}
+
+/* Estilo Hover (Efeito Sutil) */
+#btn-salvar:hover, .btn-voltar:hover {
+    background-color: #4a4e6a; /* Tom de roxo/azul primário mais escuro */
+    transform: translateY(-2px); /* Efeito de levitação */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+#btn-salvar:active, .btn-voltar:active {
+    transform: translateY(1px);
+}
+
+/* Oculta o link "Voltar para a Lista" original no HTML, pois o botão já faz isso */
+main p a {
+    display: none;
+}
+
+
+/* --- Estilo das Mensagens (Padrão) --- */
+#mensagem-status {
+    margin-top: 25px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    max-width: 450px; 
+    min-height: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box; 
+}
+
+.mensagem.success {
+    background-color: #d4edda;
+    color: var(--color-success);
+    border: 1px solid #c3e6cb;
+}
+
+.mensagem.error {
+    background-color: #f8d7da;
+    color: var(--color-error);
+    border: 1px solid #f5c6cb;
+}

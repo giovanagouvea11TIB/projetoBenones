@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Novo Membro</title>
+    <link rel="stylesheet" href="./styles/criaNovoMembro.css"> </head>
+<body>
+    <header>
+        <h1>✏️ Cadastrar Novo Membro</h1>
+    </header>
+
+    <main>
+        <form id="form-cadastro">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" required>
+
+            <label for="nickname">Nickname / Usuário:</label>
+            <input type="text" id="nickname" required>
+
+            <label for="linguagem">Linguagem Favorita:</label>
+            <input type="text" id="linguagem" required>
+            
+            <button type="submit">Enviar Cadastro</button>
+            <p id="mensagem-cadastro" class="mensagem"></p>
+        </form>
+        <p><a href="buscaMembro.html">Ver lista de membros cadastrados</a></p>
+    </main>
+
+    <script src="criaNovoMembro.js"></script>
+</body>
+</html>

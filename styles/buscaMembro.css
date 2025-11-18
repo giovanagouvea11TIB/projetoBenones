@@ -1,0 +1,282 @@
+/* style.css (COMPLETO E MODERNO para criaNovoMembro.html e buscaMembro.html) */
+
+/* --- Variáveis CSS --- */
+:root {
+    --color-primary: #5a5f7f;     /* Azul/Roxo Escuro (Primário da Marca) */
+    --color-secondary: #ff6b6b;   /* Vermelho Cativante (Acento/Aviso) */
+    --color-background: #f0f2f5; /* Cinza Claro (Fundo) */
+    --color-card-bg: #ffffff;    /* Branco Puro (Cartões/Formulário) */
+    --color-text-dark: #343a40;  /* Texto Escuro */
+    --color-success: #28a745;    /* Verde Sucesso */
+    --color-error: #dc3545;      /* Vermelho Erro */
+}
+
+/* --- Estilos Gerais e Layout --- */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* --- Estilo do Cabeçalho (Header) --- */
+header {
+    width: 100%;
+    max-width: 600px; 
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--color-primary);
+    font-size: 2.5em; 
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin: 0; 
+    padding-bottom: 10px;
+    position: relative;
+    display: inline-block; 
+}
+
+/* Underline animado para o H1 */
+h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-secondary);
+    transform: scaleX(0); 
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+}
+
+body:hover h1::after,
+h1:hover::after {
+    transform: scaleX(1); 
+    transform-origin: bottom left;
+}
+
+
+/* --- Estilo da Área Principal (Main) --- */
+main {
+    background-color: var(--color-card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 800px; /* Largura maior para a lista */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+main:hover {
+    transform: translateY(-5px);
+}
+
+
+/* --- Estilos Comuns (Botão e Inputs) --- */
+
+button {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 15px; /* Espaçamento para o botão da lista */
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #4a4e6a;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    background-color: #3f4258;
+    transform: translateY(1px);
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA A TELA DE BUSCA --- */
+
+#lista-membros {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#membros-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center;
+}
+
+/* Estilo para cada "cartão" de membro (criado pelo JavaScript) */
+.membro-card {
+    background-color: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    width: calc(50% - 10px); 
+    min-width: 300px;
+    border-left: 5px solid var(--color-secondary); 
+    transition: transform 0.2s;
+}
+
+.membro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.membro-card h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+}
+
+.membro-card p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.membro-card strong {
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+/* --- Estilos das Mensagens (Comum às duas páginas) --- */
+
+.mensagem { 
+    margin-top: 25px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    min-height: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box; 
+}
+
+/* Classes para mensagens de sucesso e erro */
+.mensagem.success {
+    background-color: #d4edda;
+    color: var(--color-success);
+    border: 1px solid #c3e6cb;
+}
+
+.mensagem.error {
+    background-color: #f8d7da;
+    color: var(--color-error);
+    border: 1px solid #f5c6cb;
+}
+
+
+/* --- Estilos de Navegação (Comum às duas páginas) --- */
+
+main p a { 
+    color: var(--color-secondary); 
+    text-decoration: none;
+    margin-top: 20px;
+    display: block;
+    font-size: 1em;
+    font-weight: 600;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+main p a:hover {
+    color: var(--color-primary); 
+    text-decoration: underline;
+}
+
+
+/* --- ESTILOS ESPECÍFICOS PARA O FORMULÁRIO (criaCliente.html) --- */
+
+#form-cadastro {
+    width: 100%; 
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+label {
+    display: block;
+    margin-top: 10px; 
+    margin-bottom: 2px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    font-size: 0.95em;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(90, 95, 127, 0.2);
+}
+
+.membro-card .acoes button {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-top: 15px; /* Espaçamento para o botão da lista */
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    transition: all 0.3s ease; /* Transição suave para o hover */
+}
+
+.membro-card .btn-editar:hover {
+    background-color: #0056b3; 
+    transform: translateY(-2px); /* Efeito de elevação */
+    box-shadow: 0 6px #004085;
+}
+
+
+/* Efeito ao passar o mouse (Hover) no EXCLUIR */
+.membro-card .btn-excluir:hover {
+    background-color: #c82333;
+    transform: translateY(-2px); /* Efeito de elevação */
+    box-shadow: 0 6px #881922;
+}

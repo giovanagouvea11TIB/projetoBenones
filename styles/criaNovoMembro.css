@@ -1,0 +1,255 @@
+/* style.css (COMPLETO E MODERNO para ambas as páginas) */
+
+/* --- Variáveis CSS --- */
+:root {
+    --color-primary: #5a5f7f;     /* Azul/Roxo Escuro (Primário da Marca) */
+    --color-secondary: #ff6b6b;   /* Vermelho Cativante (Acento/Aviso) */
+    --color-background: #f0f2f5; /* Cinza Claro (Fundo) */
+    --color-card-bg: #ffffff;    /* Branco Puro (Cartões/Formulário) */
+    --color-text-dark: #343a40;  /* Texto Escuro */
+    --color-success: #28a745;    /* Verde Sucesso */
+    --color-error: #dc3545;      /* Vermelho Erro */
+}
+
+/* --- Estilos Gerais e Layout --- */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Garante que padding não cause overflow */
+}
+
+/* --- Estilo do Cabeçalho (Header) --- */
+header {
+    width: 100%;
+    max-width: 600px; /* Limita a largura do cabeçalho */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--color-primary);
+    font-size: 2.5em; /* Um pouco maior para o título principal */
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin: 0; /* Remove margem padrão */
+    padding-bottom: 10px;
+    position: relative;
+    display: inline-block; /* Para o underline animado */
+}
+
+/* Underline animado para o H1 */
+h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-secondary);
+    transform: scaleX(0); /* Começa invisível */
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+}
+
+body:hover h1::after,
+h1:hover::after {
+    transform: scaleX(1); /* Expande ao passar o mouse sobre o body ou h1 */
+    transform-origin: bottom left;
+}
+
+
+/* --- Estilo da Área Principal (Main) --- */
+main {
+    background-color: var(--color-card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada para o "card" principal */
+    width: 100%;
+    max-width: 500px; /* Largura um pouco maior para a área principal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+main:hover {
+    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+}
+
+
+/* --- Elementos de Formulário (Aplicado ao #form-cadastro) --- */
+
+#form-cadastro {
+    width: 100%; /* Ocupa 100% da main */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os elementos do formulário */
+}
+
+label {
+    display: block;
+    margin-top: 10px; /* Ajuste para não ter margem duplicada com o gap */
+    margin-bottom: 2px; /* Espaço menor entre label e input */
+    font-weight: 600;
+    color: var(--color-text-dark);
+    font-size: 0.95em;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(90, 95, 127, 0.2);
+}
+
+/* --- Estilo do Botão de Cadastro --- */
+
+button[type="submit"] {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 30px;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:hover {
+    background-color: #4a4e6a;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+button[type="submit"]:active {
+    background-color: #3f4258;
+    transform: translateY(1px);
+}
+
+/* --- Estilo das Mensagens (Parágrafo com ID mensagem-cadastro) --- */
+
+p.mensagem { /* Aplica ao <p id="mensagem-cadastro" class="mensagem"></p> */
+    margin-top: 25px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    max-width: 450px; /* Garante que a mensagem não seja muito larga */
+    min-height: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box; /* Importante para padding e width */
+}
+
+/* Classes para mensagens de sucesso e erro (usadas pelo JavaScript) */
+.mensagem.success {
+    background-color: #d4edda;
+    color: var(--color-success);
+    border: 1px solid #c3e6cb;
+}
+
+.mensagem.error {
+    background-color: #f8d7da;
+    color: var(--color-error);
+    border: 1px solid #f5c6cb;
+}
+
+
+/* --- Estilos para o link "Ver lista de membros cadastrados" --- */
+
+main p a { /* Seleciona o link dentro do parágrafo da main */
+    color: var(--color-secondary); /* Usa a cor de acento */
+    text-decoration: none;
+    margin-top: 20px;
+    display: block;
+    font-size: 1em;
+    font-weight: 600;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+main p a:hover {
+    color: var(--color-primary); /* Muda a cor no hover */
+    text-decoration: underline;
+}
+
+
+/* --- ESTILOS PARA A TELA DE BUSCA (Reutilizado do código anterior) --- */
+
+#resultado {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 30px;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cliente-card {
+    background-color: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    width: calc(50% - 10px);
+    min-width: 300px;
+    border-left: 5px solid var(--color-secondary);
+    transition: transform 0.2s;
+}
+
+.cliente-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cliente-card h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+}
+
+.cliente-card p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.cliente-card strong {
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+/* Botões da página de busca (se houver mais de um) */
+#btn-atualizar { /* Exemplo, se você tiver um botão com este ID */
+    background-color: var(--color-secondary); /* Botão de ação secundária com cor de destaque */
+    margin-bottom: 20px;
+}
+#btn-atualizar:hover {
+    background-color: #e05e5e;
+}
+
+/* Fim do style.css */

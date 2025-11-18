@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Excluir Membro</title>
+    <link rel="stylesheet" href="./styles/criaNovoMembro.css"> 
+</head>
+<body>
+    <header>
+        <h1 id="titulo-pagina">🗑️ Excluindo Membro...</h1>
+    </header>
+
+    <main>
+        <section id="confirmacao-exclusao">
+            <p id="mensagem-status" class="mensagem">Carregando dados do membro...</p>
+            
+            <div id="dados-membro" style="display:none;">
+                <p>Confirme a exclusão do seguinte membro:</p>
+                <p><strong>ID:</strong> <span id="membro-id-display"></span></p>
+                <p><strong>Nickname:</strong> <span id="membro-nickname-display"></span></p>
+                <p><strong>Nome:</strong> <span id="membro-nome-display"></span></p>
+                <p><strong>Linguagem:</strong> <span id="membro-linguagem-display"></span></p>
+                
+                <p class="aviso">Esta ação é irreversível!</p>
+
+                <div class="botoes-acao">
+                    <button type="button" id="btn-confirmar">✅ Confirmar Exclusão</button>
+                    <a href="buscaMembro.html" class="btn-voltar">❌ Cancelar e Voltar</a>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <script src="excluiMembro.js"></script>
+</body>
+</html>
